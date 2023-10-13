@@ -187,12 +187,12 @@ public class MapGenerator : MonoBehaviour
     void CreatePassage(Room roomA, Room roomB, Coord tileA, Coord tileB)
     {
         Room.ConnectRooms(roomA, roomB);
-        Debug.DrawLine(CoordToWorldPoint(tileA), CoordToWorldPoint(tileB), Color.green, 100);
+        //Debug.DrawLine(CoordToWorldPoint(tileA), CoordToWorldPoint(tileB), Color.green, 100);
 
         List<Coord> line = GetLine(tileA, tileB);
         foreach (Coord c in line)
         {
-            DrawCircle(c, 2);
+            DrawCircle(c, 5);
         }
     }
 
@@ -255,8 +255,8 @@ public class MapGenerator : MonoBehaviour
             {
                 if (inverted) x += gradientStep;
                 else y += gradientStep;
+                gradientAccumulation -= longest;
             }
-            gradientAccumulation -= longest;
         }
 
         return line;
